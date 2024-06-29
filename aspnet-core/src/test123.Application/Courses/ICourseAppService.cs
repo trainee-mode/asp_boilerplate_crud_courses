@@ -20,5 +20,7 @@ namespace test123.Courses
 
         void DeleteCourse(Guid id);
 
+        GetAllCourseDto GetCourseByTitle(string title);
+
     }
 }

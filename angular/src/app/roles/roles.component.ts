@@ -78,6 +78,7 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
     this.showCreateOrEditRoleDialog();
   }
 
+
   editRole(role: RoleDto): void {
     this.showCreateOrEditRoleDialog(role.id);
   }

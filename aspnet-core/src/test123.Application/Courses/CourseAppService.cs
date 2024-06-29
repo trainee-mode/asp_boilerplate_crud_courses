@@ -78,5 +78,16 @@ namespace test123.Courses
             CurrentUnitOfWork.SaveChanges();
 
         }
+
+        public GetAllCourseDto GetCourseByTitle(string title)
+        {
+            var course = _courseRepository.GetAll().FirstOrDefault(c => c.Title == title);
+            if (course == null)
+            {
+                throw new EntityNotFoundException(typeof(Course), new { Title = title });
+            }
+            var courseDto = ObjectMapper.Map<GetAllCourseDto>(course);
+            return courseDto;
+        }
     }
 }

@@ -22,6 +22,10 @@ import { EditTenantDialogComponent } from './tenants/edit-tenant/edit-tenant-dia
 import { RolesComponent } from '@app/roles/roles.component';
 import { CreateRoleDialogComponent } from './roles/create-role/create-role-dialog.component';
 import { EditRoleDialogComponent } from './roles/edit-role/edit-role-dialog.component';
+//courses
+import { CoursesComponent } from './courses/courses.component';
+import { CreateCourseDialogComponent } from './courses/create-course/create-course-dialog.component';
+import { EditCourseDialogComponent } from './courses/edit-course/edit-course-dialog.component';
 // users
 import { UsersComponent } from '@app/users/users.component';
 import { CreateUserDialogComponent } from '@app/users/create-user/create-user-dialog.component';
@@ -39,6 +43,7 @@ import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,6 +57,10 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         RolesComponent,
         CreateRoleDialogComponent,
         EditRoleDialogComponent,
+        // courses
+        CoursesComponent,
+        CreateCourseDialogComponent,
+        EditCourseDialogComponent,
         // users
         UsersComponent,
         CreateUserDialogComponent,
@@ -67,7 +76,7 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent
+        SidebarMenuComponent,        
     ],
     imports: [
         CommonModule,
