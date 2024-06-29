@@ -30,7 +30,7 @@ namespace test123.Courses
                 throw new UserFriendlyException("Already exists");
             }
 
-            newCourse = new Course { Title = course.Title, Description = course.Title };
+            newCourse = new Course { Title = course.Title, Description = course.Description };
             _courseRepository.Insert(newCourse);
         }
 
