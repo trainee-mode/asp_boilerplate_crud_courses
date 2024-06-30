@@ -44,14 +44,18 @@ import {
           }
         });
       }
+      else{
+        this._courseService
+      }
         
     }
   
     save(): void {
       this.saving = true;
-  
       const course = new CourseDto();
       course.init(this.course);
+      if(this.id){
+        
   
       this._courseService.updateCourse(course).subscribe(
         () => {
@@ -64,6 +68,22 @@ import {
           this.notify.error('Failed to save the course: ' + error.message);
         }
       );
+      }
+      else{
+        this._courseService
+        .createCourse(course)
+        .subscribe(
+          () => {
+            this.notify.info(this.l('SavedSuccessfully'));
+            this.bsModalRef.hide();
+            this.onSave.emit();
+          },
+          () => {
+            this.saving = false;
+          }
+        );
+      }
+      
     }
   }
   

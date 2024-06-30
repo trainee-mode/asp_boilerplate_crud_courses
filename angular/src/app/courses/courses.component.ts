@@ -86,26 +86,34 @@ export class CoursesComponent implements OnInit{
 
   showCreateOrEditCourseDialog(id?: string): void {
     let createOrEditCourseDialog: BsModalRef;
-    if (!id) {
-      createOrEditCourseDialog = this._modalService.show(
-        CreateCourseDialogComponent,
-        {
-          class: 'modal-lg',
-        }
-      );
-    } 
-    else {
-      createOrEditCourseDialog = this._modalService.show(
-        EditCourseDialogComponent,
-        {
-          class: 'modal-lg',
-          initialState: {
-            id: id,
-          },
-        }
-      );
-    }
-
+    // if (!id) {
+    //   createOrEditCourseDialog = this._modalService.show(
+    //     CreateCourseDialogComponent,
+    //     {
+    //       class: 'modal-lg',
+    //     }
+    //   );
+    // } 
+    // else {
+    //   createOrEditCourseDialog = this._modalService.show(
+    //     EditCourseDialogComponent,
+    //     {
+    //       class: 'modal-lg',
+    //       initialState: {
+    //         id: id,
+    //       },
+    //     }
+    //   );
+    // }
+    createOrEditCourseDialog = this._modalService.show(
+      EditCourseDialogComponent,
+      {
+        class: 'modal-lg',
+        initialState: {
+          id: id,
+        },
+      }
+    );
     createOrEditCourseDialog.content.onSave.subscribe(() => {
       window.location.reload()
     });
