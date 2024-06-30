@@ -28,14 +28,22 @@ import {
     constructor(
       injector: Injector,
       private _courseService: CourseServiceProxy,
-      public bsModalRef: BsModalRef
+      public bsModalRef: BsModalRef,
     ) {
       super(injector);
     }
   
     ngOnInit(): void {
-      this._courseService
-        .updateCourse(this.course)
+      if (this.id) {
+        this._courseService.getCourseById(this.id).subscribe({
+          next: (result) => {
+            this.course = result;
+          },
+          error: (error) => {
+            this.notify.error('Error fetching course: ' + error.message);
+          }
+        });
+      }
         
     }
   
@@ -51,8 +59,9 @@ import {
           this.bsModalRef.hide();
           this.onSave.emit();
         },
-        () => {
+        (error) => {
           this.saving = false;
+          this.notify.error('Failed to save the course: ' + error.message);
         }
       );
     }
