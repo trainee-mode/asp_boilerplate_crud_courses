@@ -41,7 +41,17 @@ export class CoursesComponent implements OnInit{
       });
   }
 
-  
+  getCourseThroughTitle(title: string): void {
+    this._coursesService.getCourseByTitle(title).subscribe({
+      next: (result) => {
+        this.courses = Array.isArray(result) ? result : [result]; 
+      },
+      error: (error) => {
+        console.error('Error fetching courses:', error);
+        this.courses = []; 
+      }
+    });
+  }
 
   delete(course: CourseDto): void {
     abp.message.confirm(( course.title),
