@@ -42,13 +42,14 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
-
+import { DxButtonModule, DxDataGridModule, DxTabPanelModule, DxTextAreaModule, DxTextBoxModule } from 'devextreme-angular';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         AboutComponent,
+        
         // tenants
         TenantsComponent,
         CreateTenantDialogComponent,
@@ -92,6 +93,11 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
         ServiceProxyModule,
         SharedModule,
         NgxPaginationModule,
+        DxButtonModule,
+        DxDataGridModule,
+        DxTextBoxModule,
+        DxTextAreaModule,
+        DxTabPanelModule,
     ],
     providers: []
 })

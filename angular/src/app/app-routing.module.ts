@@ -11,7 +11,9 @@ import { ChangePasswordComponent } from './users/change-password/change-password
 import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
-    imports: [
+    imports: 
+    
+    [
         RouterModule.forChild([
             {
                 path: '',
@@ -25,7 +27,8 @@ import { CoursesComponent } from './courses/courses.component';
                     { path: 'update-password', component: ChangePasswordComponent, canActivate: [AppRouteGuard] },
                     { path: 'courses', component: CoursesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] }
                 ]
-            }
+            },
+           
         ])
     ],
     exports: [RouterModule]

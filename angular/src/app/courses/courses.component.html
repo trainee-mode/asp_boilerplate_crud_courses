@@ -6,12 +6,15 @@
           <h1>{{ "Courses"  }}</h1>
         </div>
         <div class="col-6 text-right">
-          <a href="javascript:;"
+          <dx-button>
+            <a href="javascript:;"
             class="btn bg-blue"
             (click)="createCourse()">
             <i class="fa fa-plus-square"></i>
             {{ "Create" }}
           </a>
+          </dx-button>
+          
         </div>
       </div>
     </div>
@@ -25,11 +28,11 @@
             <div class="col-md-6">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <button type="button"
+                  <dx-button 
                     class="btn bg-blue"
                     (click)="getCourseThroughTitle(keyword)">
                     <i class="fas fa-search"></i>
-                  </button>
+                  </dx-button>
                 </div>
                 <input type="text"
                 class="form-control"
@@ -42,43 +45,6 @@
           </div>
         </div>
         <!-- <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered"
-              >
-              <thead class="bg-light">
-                <tr>
-                  <th>{{ "CourseName"  }}</th>
-                  <th>{{ "DisplayName"  }}</th>
-                  <th style="width: 200px;">{{ "Actions"  }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="
-                  let course of courses
-                   
-                ">
-                  <td>{{ course.name }}</td>
-                  <td>{{ course.displayName }}</td>
-                  <td>
-                    <button type="button"
-                      class="btn btn-sm bg-secondary"
-                      >
-                      <i class="fas fa-pencil-alt"></i>
-                      {{ "Edit"  }}
-                    </button>
-                    <button type="button"
-                      class="btn btn-sm bg-danger mx-2"
-                      (click)="delete(course)">
-                      <i class="fas fa-trash"></i>
-                      {{ "Delete"  }}
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div> -->
-        <div class="card-body">
           <div class="table-responsive">
             <table class="table table-striped table-bordered">
               <thead class="bg-light">
@@ -93,26 +59,48 @@
                   <td>{{ course.title }}</td>
                   <td>{{ course.description }}</td>
                   <td>
-                    <button type="button" class="btn btn-sm bg-secondary" (click)="editCourse(course)">
+                    <dx-button class="btn btn-sm bg-secondary" (click)="editCourse(course)">
                       <i class="fas fa-pencil-alt"></i> {{ "Edit"  }}
-                    </button>
-                    <button type="button" class="btn btn-sm bg-danger mx-2" (click)="delete(course)">
+                    </dx-button>
+                    <dx-button class="btn btn-sm bg-danger mx-2" (click)="delete(course)">
                       <i class="fas fa-trash"></i> {{ "Delete"  }}
-                    </button>
+                    </dx-button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div> -->
+        <div class="card-body w-100 h-100 table-responsive table table-striped table-bordered ">
+          <dx-data-grid 
+            id="gridContainer"
+            [dataSource]="courses"
+            [allowColumnReordering]="true"
+            [allowColumnResizing]="true"
+            [columnAutoWidth]="true"
+            [showBorders]="true"
+            noDataText=""
+            >
+            <dxi-column dataField="title" caption="Title" [hidingPriority]="1" width="33%" ></dxi-column>
+            <dxi-column dataField="description" caption="Description" [hidingPriority]="2"></dxi-column>
+            <dxi-column caption="Actions" [hidingPriority]="0" cellTemplate="actionTemplate"></dxi-column>
+            <div *dxTemplate="let data of 'actionTemplate'">
+              <dx-button class="btn btn-sm bg-secondary" (onClick)="editCourse(data.data)">
+                <i class="fas fa-pencil-alt pr-1"></i> {{ "Edit" }}
+              </dx-button>
+              <dx-button class="btn btn-sm bg-danger mx-2 " (onClick)="delete(data.data)">
+                <i class="fas fa-trash pr-1"></i> {{ "Delete" }}
+              </dx-button>
+            </div>
+          </dx-data-grid>
         </div>
-        
         <div class="card-footer table-card-footer bg-light border-top">
           <div class="row">
             <div class="col-sm-4 col-12 text-sm-left text-center">
-              <button class="btn btn-secondary"
+              <dx-button class="btn btn-secondary"
                 (click)="reloadPage()">
                 <i class="fas fa-redo-alt"></i>
-              </button>
+              </dx-button>
             </div>
             
             
