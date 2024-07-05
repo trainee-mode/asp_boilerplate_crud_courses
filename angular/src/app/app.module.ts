@@ -26,6 +26,8 @@ import { EditRoleDialogComponent } from './roles/edit-role/edit-role-dialog.comp
 import { CoursesComponent } from './courses/courses.component';
 import { CreateCourseDialogComponent } from './courses/create-course/create-course-dialog.component';
 import { EditCourseDialogComponent } from './courses/edit-course/edit-course-dialog.component';
+//quizzes
+import { QuizzesComponent } from './quizzes/quizzes.component';
 // users
 import { UsersComponent } from '@app/users/users.component';
 import { CreateUserDialogComponent } from '@app/users/create-user/create-user-dialog.component';
@@ -62,6 +64,8 @@ import { DxButtonModule, DxDataGridModule, DxTabPanelModule, DxTextAreaModule, D
         CoursesComponent,
         CreateCourseDialogComponent,
         EditCourseDialogComponent,
+        //quizzes
+        QuizzesComponent,   
         // users
         UsersComponent,
         CreateUserDialogComponent,
@@ -77,7 +81,7 @@ import { DxButtonModule, DxDataGridModule, DxTabPanelModule, DxTextAreaModule, D
         SidebarComponent,
         SidebarLogoComponent,
         SidebarUserPanelComponent,
-        SidebarMenuComponent,        
+        SidebarMenuComponent,     
     ],
     imports: [
         CommonModule,

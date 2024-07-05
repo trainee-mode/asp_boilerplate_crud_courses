@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using test123.EntityFrameworkCore;
 
@@ -11,9 +12,11 @@ using test123.EntityFrameworkCore;
 namespace test123.Migrations
 {
     [DbContext(typeof(test123DbContext))]
-    partial class test123DbContextModelSnapshot : ModelSnapshot
+    [Migration("20240705184654_Initial-Quizzes")]
+    partial class InitialQuizzes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
